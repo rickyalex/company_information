@@ -28,11 +28,11 @@ class M_data extends CI_Model{
 		$sql = $this->DB->query("SELECT * FROM denda_keterlambatan ");
 		return $sql;
 	}
-		function pencapaian_r(){
+	function pencapaian_r(){
 		return $this->DB->get('upload_revenue');
 	}
-	function pencapaian_3(){
-		return $this->DB->get('upload_resume_revenue');
+	function pencapaian_resume(){
+		return $this->DB->get('q_resume_revenue');
 	}
 	function portal_ga(){
 		

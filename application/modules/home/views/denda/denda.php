@@ -3,7 +3,7 @@
 	   new Highcharts.Chart({
 		chart: {
 			height:(6 / 16 * 100) + '%',
-                        renderTo: 'container3',
+                        renderTo: 'container2',
 			type: 'bar',
 			events: {
                 load: function () {

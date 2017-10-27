@@ -27,7 +27,7 @@ class Home extends MX_Controller {
 	}
         
         function get_info_text(){
-		$data['info_text'] = $this->m_data->running_text()->result_array();
+		$data['info_text'] = $this->m_data->running_text();
                 return $data;
 	}
         
@@ -54,6 +54,14 @@ class Home extends MX_Controller {
         function view_bar_portal(){
 		$data = $this->get_bar_portal();
 		$this->load->view('home/portal_ga/portal_ga',$data);
+	}
+        function get_canvas(){
+		$data['q_resume_revenue'] = $this->m_data->pencapaian_resume();
+		return $data;
+	}
+        function view_canvas(){
+		$data = $this->get_canvas();
+		$this->load->view('home/concretecharts/concretecharts',$data);
 	}
 
 }

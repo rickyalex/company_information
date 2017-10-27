@@ -30,28 +30,28 @@
                 margin:0;
                 overflow:hidden;
                 background:url(<?php echo base_url(); ?>/assets/assets_front/images/login-bg.jpg) no-repeat Center;
-                background-size:2500px 1250px; 
+                //background-size:2500px 1250px; 
                 /* -webkit-animation: mymove 55s infinite; Chrome, Safari, Opera */
 
             }
 
-            /* Chrome, Safari, Opera */
+/*             Chrome, Safari, Opera 
             @-webkit-keyframes mymove {
                 50% {background-size: 3225px 1225px;}
             }
 
-            /* Standard syntax */
+             Standard syntax 
             @keyframes mymove {
                 25% {background-size: 1225px 1225px;}
             }
-            /* Standard syntax */
+             Standard syntax 
             @keyframes mymove {
                 50% {background-size: 2500px 1250px;}
             }
-            /* Standard syntax */
+             Standard syntax 
             @keyframes mymove {
                 75% {background-size: 3225px 3225px;}
-            } 
+            } */
 
             .vticker{
                 padding:0px;
@@ -79,8 +79,9 @@
             }
 
             /* ini untuk marquee */
-            #textlayer  { z-index: 300; width: 100%; height: 100%; }
-            marquee#text1 { position: fixed; bottom: 0px; left: 0px; width: 100%; color: white; background-color: black;  font-size: 20px; }
+            #textlayer  { z-index: 300; width: 100%; height: 100%; background-color: black;}
+            marquee#text1 { position: fixed; bottom: 0px; left: 5%; width: 95%; color: white; background-color: black;  font-size: 20px; }
+            a#text2 { position: fixed; bottom: 0px; left: 0%; width: 5%;}
 
         </style>
 
@@ -195,6 +196,15 @@
                         <li>
                             <div class="row">
                                 <div class="col-md-12">
+                                    <div id="data-1" style="padding-top: 0px;margin: 0px 0px 15px 0px;">
+                                        <div id="container0" style="min-width: 310px; margin: 0 0"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="row">
+                                <div class="col-md-12">
                                     <div id="data-2" style="padding-top: 0px;margin: 0px 0px 15px 0px;">
                                         <div id="container1" style="min-width: 310px; margin: 0 0"></div>
                                     </div>
@@ -250,15 +260,16 @@
                 </div>
 
             </div>
-            <div class="row" style="margin-top:1%">
-                <div class="col-lg-4 col-xs-6">
-                    <a href="<?php echo base_url(); ?>welcome" class="btn btn-small btn-info">Admin</a>
-                </div>
-            </div>
+            
         </div>
-
+<!--        <div class="row" style="margin-top:1%">
+            
+        </div>-->
         <div id="textlayer">
-            <marquee id="text1" behavior="scroll" loop="infinite" starttime="0" displaytime="20"></marquee>
+            <a href="<?php echo base_url(); ?>welcome" id="text2" class="btn btn-small btn-info">Admin</a>
+            <marquee id="text1" behavior="scroll" loop="infinite" starttime="0" displaytime="20">     
+            </marquee>
+
         </div>
 
         <!-- animated bar -->
@@ -267,10 +278,17 @@
         <script src="<?php echo base_url(); ?>/assets/assets_front/highchart2/highcharts/modules/exporting.js" type="text/javascript"></script>
         <script src="<?php echo base_url(); ?>/assets/assets_front/highchart2/highcharts/themes/gray.js" type="text/javascript"></script>
 
+        <!-- u/ canvas chart -->
+        <script src="<?php echo base_url(); ?>/assets/assets_front/concretecharts/js/CircleChart.js" type="application/javascript"></script>
+        <link href='<?php echo base_url(); ?>/assets/assets_front/concretecharts/css/font.css' rel='stylesheet' type='text/css'>
+
         <!-- auto refresh data-->
         <script>
             var timerId = setInterval(function () {
                 console.log("retrieving data from server ");
+                
+                //runing text
+                $("#container0").load('<?php echo base_url(); ?>home/view_canvas');
                 
                 //chart1
                 $("#container1").load('<?php echo base_url(); ?>home/view_absen');
@@ -283,6 +301,7 @@
 
                 //runing text
                 $("#text1").load('<?php echo base_url(); ?>home/view_info_text');
+                
             }, 5000);
         </script>
     </body>
