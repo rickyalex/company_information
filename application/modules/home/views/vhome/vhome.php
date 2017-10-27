@@ -8,8 +8,8 @@
         <link style="text/css" href="<?php echo base_url(); ?>/assets/assets_front/css/AdminLTE.css" rel="stylesheet prefecth">
        <!--<link style="text/css" href="<?php echo base_url(); ?>/assets/css/events.css" rel="stylesheet"> -->
 
-        <!-- animated bar -->
-        <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/assets_front/animated-bar/css/style.css">
+        <!-- animated bar 
+        <link rel="stylesheet" href="<?php echo base_url(); ?>/assets/assets_front/animated-bar/css/style.css"> -->
         <script type="text/javascript" src="<?php echo base_url(); ?>/assets/assets_front/jquery.min.js" ></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>/assets/assets_front/jquery.easing.min.js"></script>
         <script type="text/javascript" src="<?php echo base_url(); ?>/assets/assets_front/jquery.easy-ticker.js"></script>
@@ -20,22 +20,21 @@
                 font-family: 'Oswald', sans-serif;
             }
 
-            .container{
+/*            .container{
                 width: 100% !important;
-            }
+            }*/
             #gradient {
-
                 height:100%;
                 width:100%;
                 margin:0;
                 overflow:hidden;
-                background:url(<?php echo base_url(); ?>/assets/assets_front/images/login-bg.jpg) no-repeat Center;
-                //background-size:2500px 1250px; 
-                /* -webkit-animation: mymove 55s infinite; Chrome, Safari, Opera */
+                background:url(<?php echo base_url(); ?>/assets/assets_front/images/login-bg.jpg) no-repeat;
+                background-size:2000px 1250px; 
+                -webkit-animation: mymove 55s infinite; Chrome, Safari, Opera
 
             }
 
-/*             Chrome, Safari, Opera 
+             Chrome, Safari, Opera 
             @-webkit-keyframes mymove {
                 50% {background-size: 3225px 1225px;}
             }
@@ -51,7 +50,7 @@
              Standard syntax 
             @keyframes mymove {
                 75% {background-size: 3225px 3225px;}
-            } */
+            }
 
             .vticker{
                 padding:0px;
@@ -89,8 +88,8 @@
             $(document).ready(function () {
 
                 var dd = $('.vticker').easyTicker({
-                    direction: 'up',
-                    easing: 'easeInOutBack',
+                    direction: 'left',
+                    easing: 'swing',
                     speed: 'slow',
                     interval: 10000,
                     height: 'auto',
@@ -186,12 +185,9 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="row">
+                
+                
                 <div class="vticker">
-
-
                     <ul>
                         <li>
                             <div class="row">
@@ -262,9 +258,6 @@
             </div>
             
         </div>
-<!--        <div class="row" style="margin-top:1%">
-            
-        </div>-->
         <div id="textlayer">
             <a href="<?php echo base_url(); ?>welcome" id="text2" class="btn btn-small btn-info">Admin</a>
             <marquee id="text1" behavior="scroll" loop="infinite" starttime="0" displaytime="20">     
@@ -280,8 +273,9 @@
 
         <!-- u/ canvas chart -->
         <script src="<?php echo base_url(); ?>/assets/assets_front/concretecharts/js/CircleChart.js" type="application/javascript"></script>
-        <link href='<?php echo base_url(); ?>/assets/assets_front/concretecharts/css/font.css' rel='stylesheet' type='text/css'>
-
+        <link href='<?php echo base_url(); ?>/assets/assets_front/concretecharts/css/style_concretecharts.css' rel='stylesheet' type='text/css' />
+<!--    <link href='<?php echo base_url(); ?>/assets/assets_front/concretecharts/css/font.css' rel='stylesheet' type='text/css'>-->
+        
         <!-- auto refresh data-->
         <script>
             var timerId = setInterval(function () {
