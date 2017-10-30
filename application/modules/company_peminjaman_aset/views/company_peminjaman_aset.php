@@ -68,30 +68,31 @@
           <!-- /top tiles -->
 		  <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-			  <div class="x_panel tile fixed_height_400">
-				
-					
-							<?php
-							$attributes = array('id' => 'company_peminjaman_aset');
-							echo form_open_multipart('Company_peminjaman_aset/unggahexcel', $attributes);
-							?>
-							<div class="form-group">
-								<input type="file" id="company_peminjaman_aset_id" name="company_peminjaman_aset_name" />
-							</div>
-							<div>
-									<button id="buttonSubmit" type="submit" class="btn btn-default btn-customize" title="Upload Excel">Upload File Excel</button>
-								
-							</div>
-							</form>
-							<div>
-									<a href="<?php echo base_url();?>company_peminjaman_aset/adddata/">
-										<button id="buttonAdd" type="submit" class="btn btn-default btn-customize-tambah" title="Upload Excel">Tambah Data</button>
-									</a>
-							</div>
-							<table id="table"></table>
-							
-		
-			  </div>
+                
+                
+<!--            Karena Data mobil GA tidak input data tapi langsung tarik query    
+                <div class="x_panel tile fixed_height_400">
+
+                      <?php
+                      $attributes = array('id' => 'company_peminjaman_aset');
+                      echo form_open_multipart('Company_peminjaman_aset/unggahexcel', $attributes);
+                      ?>
+                      <div class="form-group">
+                              <input type="file" id="company_peminjaman_aset_id" name="company_peminjaman_aset_name" />
+                      </div>
+                      <div>
+                                      <button id="buttonSubmit" type="submit" class="btn btn-default btn-customize" title="Upload Excel">Upload File Excel</button>
+
+                      </div>
+                      </form>
+                      <div>
+                                      <a href="<?php echo base_url();?>company_peminjaman_aset/adddata/">
+                                              <button id="buttonAdd" type="submit" class="btn btn-default btn-customize-tambah" title="Upload Excel">Tambah Data</button>
+                                      </a>
+                      </div>
+                      <table id="table"></table>
+
+                </div>-->
               <div class="x_panel tile fixed_height_400">
 <!--no_unit, status, dipakai_oleh, jam_booking, dengan_tujuan, akan_tersedia_pada_pukul-->
 				<div class="col-md-12 col-sm-12 col-xs-12 bg-white">
@@ -115,15 +116,17 @@
 							data-url="<?php echo base_url();?>company_peminjaman_aset/getdata">
 							<thead>
 								<tr> 
-									<th data-field="no_unit" width="auto" data-sortable="true"><center>No Unit</center></th> 
-									<th data-field="status" width="auto" data-sortable="true"><center>Status</center></th>
-									<th data-field="dipakai_oleh" width="auto" data-sortable="true"><center>Dipakai Oleh</center></th> 
-									<!--<th data-formatter="formattanggal" data-field="jam_masuk" width="auto" data-sortable="true"><center>Jam Masuk</center></th>--> 
-									<th data-field="jam_booking" width="auto" data-sortable="true"><center>Dipesan Jam</center></th> 
-									<th data-field="dengan_tujuan" width="auto" data-sortable="true"><center>Dengan Tujuan</center></th> 
-									<th data-field="akan_tersedia_pada_pukul" width="auto" data-sortable="true"><center>Tersedia Pukul</center></th> 
+									<th data-field="car_nopol" width="auto" data-sortable="true"><center>No Polisi</center></th> 
+									<th data-field="dept_name" width="auto" data-sortable="true"><center>Dept Pemakai</center></th>									
+									<th data-field="carpool_jamawal" width="auto" data-sortable="true"><center>Jam Berangkat</center></th>
+                                                                        <th data-field="carpool_jamakhir" width="auto" data-sortable="true"><center>Jam Kembali</center></th>
+									<th data-field="carpool_tujuan" width="auto" data-sortable="true"><center>Alamat Tujuan</center></th>
+									<!--
+                                                                            <th data-field="" width="auto" data-sortable="true"><center>Status</center></th> 
+                                                                            <th data-field="" width="auto" data-sortable="true"><center>Tersedia Pukul</center></th>
+                                                                        <th data-formatter="formattanggal" data-field="jam_masuk" width="auto" data-sortable="true"><center>Jam Masuk</center></th>
 									
-									<th data-field="action" style="" data-formatter="actionFormatter" data-events="actionEvents"><center>Action</center></th>
+									<th data-field="action" style="" data-formatter="actionFormatter" data-events="actionEvents"><center>Action</center></th> --> 
 								</tr>    
 							</thead>
 						</table>

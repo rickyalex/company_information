@@ -114,12 +114,12 @@
                             sortable="true"
 							data-url="<?php echo base_url();?>company_pencapaian/getdata">
 							<thead>
-								<tr> 
-									<th data-field="payroll_id" width="auto" data-sortable="true"><center>Payroll Id</center></th> 
-									<th data-field="nama_karyawan" width="auto" data-sortable="true"><center>Nama karyawan</center></th>
-									<th data-field="jabatan" width="auto" data-sortable="true"><center>Jabatan</center></th> 
-									<!--<th data-formatter="formattanggal" data-field="jam_masuk" width="auto" data-sortable="true"><center>Jam Masuk</center></th>--> 
-									<th data-field="jam_masuk" width="auto" data-sortable="true"><center>Jam Masuk</center></th> 
+								<tr>
+									<th data-field="bln" width="auto" data-sortable="true"><center>Bulan</center></th>
+									<th data-field="pencapaian1" width="auto" data-sortable="true"><center>Revenue/Target (%)</center></th>
+									<th data-field="pencapaian2" width="auto" data-sortable="true"><center>Cost/Revenue (%)</center></th> 
+									<th data-field="pencapaian3" width="auto" data-sortable="true"><center>Margin/Revenue (%)</center></th> 
+                                                                        <!--<th data-formatter="formattanggal" data-field="jam_masuk" width="auto" data-sortable="true"><center>Jam Masuk</center></th>--> 
 									
 									<th data-field="action" style="" data-formatter="actionFormatter" data-events="actionEvents"><center>Action</center></th>
 								</tr>    

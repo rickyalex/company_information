@@ -9,7 +9,7 @@
 	
     var name = "easyTicker",
         defaults = {
-			direction: 'up',
+			direction: 'left',
 			easing: 'swing',
 			speed: 'slow',
 			interval: 2000,

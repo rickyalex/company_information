@@ -10,5 +10,5 @@
         <div class="col-md-3 left_col">
 			<?php 
 				$this->load->view("commons/commons_from_gentelella_ocs/sidebar");
-				$this->load->view("commons/commons_from_gentelella_ocs/topnav");
+				//$this->load->view("commons/commons_from_gentelella_ocs/topnav");
 			?>

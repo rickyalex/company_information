@@ -32,10 +32,10 @@ class Company_pencapaian extends MX_Controller {
 		$this->load->library('session');
 		
 		$this->load->library('email');
-        $this->load->helper(array('form', 'url'));
+                $this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');
-        $this->load->library('PHPExcel/IOFactory');
-        $this->load->library('upload');
+                $this->load->library('PHPExcel/IOFactory');
+                $this->load->library('upload');
 		$this->load->model('Company_information_model');		
 		$this->DB = $this->load->database('company_information', TRUE);
     } 
@@ -96,7 +96,7 @@ class Company_pencapaian extends MX_Controller {
 	{
 		
 		$data = $this->Company_information_model->getdata();
-		echo json_encode($data);
+            	echo json_encode($data);
 		
 	}
 	
