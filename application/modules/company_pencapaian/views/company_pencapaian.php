@@ -115,10 +115,12 @@
 							data-url="<?php echo base_url();?>company_pencapaian/getdata">
 							<thead>
 								<tr>
-									<th data-field="bln" width="auto" data-sortable="true"><center>Bulan</center></th>
-									<th data-field="pencapaian1" width="auto" data-sortable="true"><center>Revenue/Target (%)</center></th>
-									<th data-field="pencapaian2" width="auto" data-sortable="true"><center>Cost/Revenue (%)</center></th> 
-									<th data-field="pencapaian3" width="auto" data-sortable="true"><center>Margin/Revenue (%)</center></th> 
+									<th data-field="tanggal" width="auto" data-sortable="true"><center>Tanggal</center></th>
+									<th data-field="target" width="auto" data-sortable="true"><center>Target</center></th>
+									<th data-field="revenue" width="auto" data-sortable="true"><center>Revenue</center></th> 
+									<th data-field="cost" width="auto" data-sortable="true"><center>Cost</center></th>
+                                                                        <th data-field="margin" width="auto" data-sortable="true"><center>Margin</center></th>
+                                                                        <th data-field="cost_margin" width="auto" data-sortable="true"><center>Cost Margin</center></th>
                                                                         <!--<th data-formatter="formattanggal" data-field="jam_masuk" width="auto" data-sortable="true"><center>Jam Masuk</center></th>--> 
 									
 									<th data-field="action" style="" data-formatter="actionFormatter" data-events="actionEvents"><center>Action</center></th>

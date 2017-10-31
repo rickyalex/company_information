@@ -17,13 +17,15 @@
 	<script src="<?php echo base_url(); ?>assets/assets_from_gentelella_ocs/vendors/datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
 <?php
 	$id =  $this->uri->segment(3);
-	$data = $this->Company_information_model->editdata($id);
+	$data = $this->Company_information_model->editdata_pencapaian($id);
 		foreach($data as $u){
 			$id = $u->id;
-			$payroll_id = $u->payroll_id;
-			$nama_karyawan = $u->nama_karyawan;
-			$jabatan = $u->jabatan;
-			$jam_masuk = $u->jam_masuk;
+			$tanggal = $u->tanggal;
+			$target = $u->target;
+			$revenue = $u->revenue;
+			$cost = $u->cost;
+                        $margin = $u->margin;
+                        $cost_margin = $u->cost_margin;
 		}
 ?>
         <!-- page content -->
@@ -64,40 +66,50 @@
                           <input type="text" id="id" name="id" required="required" class="form-control col-md-7 col-xs-12" readonly="readonly" value="<?php echo $id; ?>">
                         </div>
                       </div>
-					  
+                        
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Payroll Id <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Tanggal<span class="required">*</span></label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div class='input-group date' id='myDatepicker'>
+                                <input type="text"  min="1" id="tanggal" name="tanggal" class="date-picker form-control col-md-7 col-xs-12" required="required" readonly="readonly" value="<?php echo $tanggal;?>">
+                                <span class="input-group-addon">
+                                     <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Target<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="payroll_id" name="payroll_id" required="required" class="form-control col-md-7 col-xs-12" readonly="readonly" value="<?php echo $payroll_id; ?>">
+                          <input type="text" id="target" name="target" required="required" class="form-control col-md-7 col-xs-12" readonly="readonly" value="<?php echo $target; ?>">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Nama Karyawan <span class="required">*</span>
-                        </label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Revenue<span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="nama_karyawan" name="nama_karyawan" required="required" class="form-control col-md-7 col-xs-12" readonly="readonly" value="<?php echo $nama_karyawan; ?>">
+                          <input type="text" id="revenue" name="revenue" required="required" class="form-control col-md-7 col-xs-12" value="<?php echo $revenue; ?>">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Jabatan <span class="required">*</span>
-						</label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Cost<span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="jabatan" name="jabatan" required="required" class="form-control col-md-7 col-xs-12" readonly="readonly" value="<?php echo $jabatan; ?>">
+                          <input type="text" id="cost" name="cost" required="required" class="form-control col-md-7 col-xs-12" value="<?php echo $cost; ?>">
                         </div>
                       </div>
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Jam Masuk <span class="required">*</span>
-                        </label>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Margin<span class="required">*</span></label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-						<div class='input-group date' id='myDatepicker'>
-                          <input type="text"  min="1" id="jam_masuk" name="jam_masuk" class="date-picker form-control col-md-7 col-xs-12" required="required" readonly="readonly" value="<?php echo date('Y-m-d H:i:s',strtotime($jam_masuk));?>">
-						  <span class="input-group-addon">
-								<span class="glyphicon glyphicon-calendar"></span>
-						  </span>
-						</div>
+                          <input type="text" id="margin" name="margin" required="required" class="form-control col-md-7 col-xs-12" value="<?php echo $margin; ?>">
                         </div>
                       </div>
+                      <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Cost Margin<span class="required">*</span></label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                          <input type="text" id="cost_margin" name="cost_margin" required="required" class="form-control col-md-7 col-xs-12" value="<?php echo $cost_margin; ?>">
+                        </div>
+                      </div>
+                      
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
@@ -138,24 +150,28 @@
 		$("#simpan_perubahan").click(function(){
 			
 			var data; 
-			var id = $("#id").val(); 
-			var payroll_id = $("#payroll_id").val();
-			var nama_karyawan = $("#nama_karyawan").val();
-			var jabatan = $("#jabatan").val();
-			var jam_masuk = $("#jam_masuk").val();
+			var id = $("#id").val();
+                        var target = $("#target").val();
+                        var revenue = $("#revenue").val();
+                        var cost = $("#cost").val();
+                        var margin = $("#margin").val();
+                        var cost_margin = $("#cost_margin").val();
+//			var payroll_id = $("#payroll_id").val();
+//			var nama_karyawan = $("#nama_karyawan").val();
+//			var jabatan = $("#jabatan").val();
+//			var jam_masuk = $("#jam_masuk").val();
 			$.ajax({
 				  url: '<?php echo base_url();?>company_pencapaian/editdataproses',
 				  dataType: 'json',
 				  type: 'POST', 
-	              data: {id : id, payroll_id : payroll_id, nama_karyawan : nama_karyawan, jabatan : jabatan, jam_masuk : jam_masuk},
-            	  success: function (result){   
-                      if(result == true){
-						  alert("data telah disimpan");
-						  window.location = '<?php echo base_url();?>company_pencapaian/company_pencapaian';
-					  }
-					  
-				  }
-			});
+                                  data: {id : id, target:target, revenue:revenue, cost:cost, margin:margin, cost_margin:cost_margin},
+                                  success: function (result){   
+                                        if(result == true){
+                                            alert("data telah disimpan");
+                                            window.location = '<?php echo base_url();?>company_pencapaian/company_pencapaian';
+                                                }
+                                            }
+                                });
 		});
 	});
 </script>

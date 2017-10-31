@@ -104,7 +104,7 @@ class Welcome extends MX_Controller {
 	{
 		$this->load->view('commons/commons_from_gentelella_ocs/header');
 		//$this->load->view('welcome');
-		//$this->load->view('commons/commons_from_gentelella_ocs/footer');
+		$this->load->view('commons/commons_from_gentelella_ocs/footer');
 	}
 	
 	public function unggahexcel() {

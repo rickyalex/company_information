@@ -58,79 +58,80 @@
           <!-- top tiles -->
           <div class="title_left">
             <h3>
-				<?php
-					/* $judul = $this->uri->segment(2);
-					$judul = judul_halaman($judul);
-					echo $judul; */
-				?>
-			</h3>
+                <?php
+                        /* $judul = $this->uri->segment(2);
+                        $judul = judul_halaman($judul);
+                        echo $judul; */
+                ?>
+            </h3>
            </div>
+          
           <!-- /top tiles -->
-		  <div class="row">
-            <div class="col-md-12 col-sm-12 col-xs-12">
-			  <div class="x_panel tile fixed_height_400">
-				
-					
-							<?php
-							$attributes = array('id' => 'company_safety_information');
-							echo form_open_multipart('Company_safety_information/unggahexcel', $attributes);
-							?>
-							<div class="form-group">
-								<input type="file" id="company_safety_information_id" name="company_safety_information_name" />
-							</div>
-							<div>
-									<button id="buttonSubmit" type="submit" class="btn btn-default btn-customize" title="Upload Excel">Upload File Excel</button>
-								
-							</div>
-							</form>
-							<div>
-									<a href="<?php echo base_url();?>company_safety_information/adddata/">
-										<button id="buttonAdd" type="submit" class="btn btn-default btn-customize-tambah" title="Upload Excel">Tambah Data</button>
-									</a>
-							</div>
-							<table id="table"></table>
-							
-		
-			  </div>
-              <div class="x_panel tile fixed_height_400">
+          
+           <div class="row">
+           <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="x_panel tile fixed_height_400">
 
-				<div class="col-md-12 col-sm-12 col-xs-12 bg-white">
-					<div id="getdata">
-						<table id="table" 
-							data-toggle="table"
-							data-search="true"
-							data-show-refresh="true"
-							data-show-toggle="true"
-							data-show-columns="true"
-							data-show-export="true" 
-							data-minimum-count-columns="2"
-							data-show-pagination-switch="true"
-							data-pagination="true"
-							data-page-list="[10, 25, 50, 100, ALL]"
-							data-show-footer="false"
-							data-export-data-type="all"
-							data-export-types="['excel','csv']"
-							data-height="100%"
-                            sortable="true"
-							data-url="<?php echo base_url();?>company_safety_information/getdata">
-							<thead>
-								<tr> 
-									<th data-field="payroll_id" width="auto" data-sortable="true"><center>Payroll Id</center></th> 
-									<th data-field="nama_karyawan" width="auto" data-sortable="true"><center>Nama karyawan</center></th>
-									<th data-field="jabatan" width="auto" data-sortable="true"><center>Jabatan</center></th> 
-									<!--<th data-formatter="formattanggal" data-field="jam_masuk" width="auto" data-sortable="true"><center>Jam Masuk</center></th>--> 
-									<th data-field="jam_masuk" width="auto" data-sortable="true"><center>Jam Masuk</center></th> 
-									
-									<th data-field="action" style="" data-formatter="actionFormatter" data-events="actionEvents"><center>Action</center></th>
-								</tr>    
-							</thead>
-						</table>
-					</div>
+                  <?php
+                  $attributes = array('id' => 'company_safety_information');
+                  echo form_open_multipart('Company_safety_information/unggahexcel', $attributes);
+                  ?>
+                  <div class="form-group">
+                    <input type="file" id="company_safety_information_id" name="company_safety_information_name" />
+                  </div>
+                  <div>
+                    <button id="buttonSubmit" type="submit" class="btn btn-default btn-customize" title="Upload Excel">Upload File Excel</button>
+                  </div>
+                  </form>
+                  <div>
+                    <a href="<?php echo base_url();?>company_safety_information/adddata/">
+                      <button id="buttonAdd" type="submit" class="btn btn-default btn-customize-tambah" title="Upload Excel">Tambah Data</button>
+                    </a>
+                  </div>
+                  <table id="table"></table>
+
                 </div>
-              </div>
+                <div class="x_panel tile fixed_height_400">
+                  <div class="col-md-12 col-sm-12 col-xs-12 bg-white">
+                          <div id="getdata">
+                                  <table id="table" 
+                                          data-toggle="table"
+                                          data-search="true"
+                                          data-show-refresh="true"
+                                          data-show-toggle="true"
+                                          data-show-columns="true"
+                                          data-show-export="true" 
+                                          data-minimum-count-columns="2"
+                                          data-show-pagination-switch="true"
+                                          data-pagination="true"
+                                          data-page-list="[10, 25, 50, 100, ALL]"
+                                          data-show-footer="false"
+                                          data-export-data-type="all"
+                                          data-export-types="['excel','csv']"
+                                          data-height="100%"
+              sortable="true"
+                                          data-url="<?php echo base_url();?>company_safety_information/getdata">
+
+                                          <thead>
+                                                  <tr> 
+                                                          <th data-field="tanggal" width="auto" data-sortable="true"><center>Tanggal</center></th>
+                                                          <th data-field="info" width="auto" data-sortable="true"><center>Your Info</center></th>
+                                                          <th data-field="status" width="auto" data-sortable="true"><center>Status</center></th>
+<!--                                                      <th data-field="nama_karyawan" width="auto" data-sortable="true"><center>Nama karyawan</center></th>
+                                                          <th data-field="jabatan" width="auto" data-sortable="true"><center>Jabatan</center></th> 
+                                                          <th data-formatter="formattanggal" data-field="jam_masuk" width="auto" data-sortable="true"><center>Jam Masuk</center></th> 
+                                                          <th data-field="jam_masuk" width="auto" data-sortable="true"><center>Jam Masuk</center></th>									-->
+                                                          <th data-field="action" style="" data-formatter="actionFormatter" data-events="actionEvents"><center>Action</center></th>
+                                                  </tr>    
+                                          </thead>                                                                      
+                                  </table>
+                          </div>
+                  </div>
+                </div>
              </div>
+                      
            </div>
-		</div>
+        </div>
 <script = type="text/javascript">
 	var base_url = "<?php echo base_url(); ?>";
 	var uri3 = "<?php echo $this->uri->segment(1); ?>";

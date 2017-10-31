@@ -55,15 +55,18 @@
                   </div>
                   <div class="x_content">
                     <br />
+                    
                     <div data-parsley-validate class="form-horizontal form-label-left">
 					  
                       <div class="form-group">
-                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Payroll Id <span class="required">*</span>
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Write Your Info Here <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="payroll_id" name="payroll_id" required="required" class="form-control col-md-7 col-xs-12">
-                        </div>
+                          <input type="text" id="info" name="payroll_id" required="required" class="form-control col-md-7 col-xs-12">
+                        </div>                          
                       </div>
+                        
+                        <!--
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Nama Karyawan <span class="required">*</span>
                         </label>
@@ -82,24 +85,26 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Jam Masuk <span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-						<div class='input-group date' id='myDatepicker'>
-                          <input type="text"  min="1" id="jam_masuk" name="jam_masuk" class="date-picker form-control col-md-7 col-xs-12" required="required" readonly="readonly">
-						  <span class="input-group-addon">
-								<span class="glyphicon glyphicon-calendar"></span>
-						  </span>
-						</div>
+                            <div class='input-group date' id='myDatepicker'>
+                                <input type="text"  min="1" id="jam_masuk" name="jam_masuk" class="date-picker form-control col-md-7 col-xs-12" required="required" readonly="readonly">
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
                         </div>
-                      </div>
+                      </div> -->
                       <div class="ln_solid"></div>
                       <div class="form-group">
                         <div class="col-md-6 col-sm-6 col-xs-12 col-md-offset-3">
                           <button id="halaman_sebelumnya" class="btn btn-primary" type="button">Kembali</button>
-						  <!--<button class="btn btn-primary" type="reset">Reset</button>-->
+                            <!--<button class="btn btn-primary" type="reset">Reset</button>-->
                           <button id="simpan_perubahan" type="submit" class="btn btn-success">Simpan</button>
                         </div>
                       </div>
 
                     </div>
+                    <!-- end form-->
+                    
                   </div>
                 </div>
               </div>
@@ -129,22 +134,40 @@
 	$(document).ready(function(){
 		$("#simpan_perubahan").click(function(){
 			
-			var data; 
-			//var id = $("#id").val(); 
-			var payroll_id = $("#payroll_id").val();
-			var nama_karyawan = $("#nama_karyawan").val();
-			var jabatan = $("#jabatan").val();
-			var jam_masuk = $("#jam_masuk").val();
-			alert(payroll_id+' '+nama_karyawan+' '+jabatan+' '+jam_masuk);
+//			var data; 
+//			var id = $("#id").val(); 
+//			var payroll_id = $("#payroll_id").val();
+//			var nama_karyawan = $("#nama_karyawan").val();
+//			var jabatan = $("#jabatan").val();
+//			var jam_masuk = $("#jam_masuk").val();
+//                        var info = $("#info").val();
+//			alert(payroll_id+' '+nama_karyawan+' '+jabatan+' '+jam_masuk);
+//			$.ajax({
+//				  url: '<?php echo base_url();?>company_safety_information/adddataproses',
+//				  dataType: 'json',
+//				  type: 'POST', 
+//	              data: {payroll_id : payroll_id, nama_karyawan : nama_karyawan, jabatan : jabatan, jam_masuk : jam_masuk},
+//            	  success: function (result){   
+//                      if(result == true){
+//						  alert("data telah disimpan");
+//						  window.location = '<?php echo base_url();?>company_safety_information/company_safety_information';
+//					  }
+//					  
+//				  }
+//			});
+                        
+                        var data; 
+                        var info = $("#info").val();
+			alert(info);
 			$.ajax({
-				  url: '<?php echo base_url();?>company_safety_information/adddataproses',
-				  dataType: 'json',
-				  type: 'POST', 
-	              data: {payroll_id : payroll_id, nama_karyawan : nama_karyawan, jabatan : jabatan, jam_masuk : jam_masuk},
-            	  success: function (result){   
+                            url: '<?php echo base_url();?>company_safety_information/adddataproses',
+                            dataType: 'json',
+                            type: 'POST', 
+                        data: {info : info},
+                        success: function (result){   
                       if(result == true){
-						  alert("data telah disimpan");
-						  window.location = '<?php echo base_url();?>company_safety_information/company_safety_information';
+                            alert("data telah disimpan");
+                            window.location = '<?php echo base_url();?>company_safety_information/company_safety_information';
 					  }
 					  
 				  }

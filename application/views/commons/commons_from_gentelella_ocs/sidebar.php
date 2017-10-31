@@ -28,7 +28,7 @@
                       <li><a href="<?php echo base_url(); ?>company_absen"><i class="fa fa-table"></i>Absen</a></li>
                       <li><a href="<?php echo base_url(); ?>company_peminjaman_aset"><i class="fa fa-car"></i>Peminjaman Aset</a></li>
                       <li><a href="<?php echo base_url(); ?>company_pencapaian"><i class="fa fa-bar-chart-o"></i>Pencapaian</a></li>
-                      <li><a href="<?php echo base_url(); ?>company_safety_information"><i class="fa fa-info-circle"></i>Safety Information</a></li>
+                      <li><a href="<?php echo base_url(); ?>company_safety_information"><i class="fa fa-info-circle"></i>Any Information</a></li>
 					  <li><a href="<?php echo base_url(); ?>"><i class="fa fa-laptop"></i>Landing Page <span class="label label-success pull-right">Information</span></a></li>
                    
                 </ul>

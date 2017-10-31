@@ -75,12 +75,14 @@ class Company_pencapaian extends MX_Controller {
 	public function editdataproses()
     {  
 		$id = $_POST['id'];
-		$payroll_id = $_POST['payroll_id'];
-		$nama_karyawan = $_POST['nama_karyawan'];
-		$jabatan = $_POST['jabatan']; 
-		$jam_masuk = date('Y-m-d H:i:s',strtotime($_POST['jam_masuk']));//date('d-m-Y HH:mm:ss',strtotime($jam_masuk))
+		$tanggal = $_POST['tanggal'];
+		$target = $_POST['target'];
+		$revenue = $_POST['revenue']; 
+		$cost = $_POST['cost']; 
+                $margin = $_POST['margin'];
+                $cost_margin = $_POST['cost_margin'];
 		
-	    $data = $this->Company_information_model->editdataproses($id, $payroll_id, $nama_karyawan, $jabatan, $jabatan, $jam_masuk);
+	    $data = $this->Company_information_model->editdataproses_pencapaian($id, $tanggal, $target, $revenue, $cost, $margin, $cost_margin);
 		echo json_encode($data);
     }
 	
@@ -95,7 +97,7 @@ class Company_pencapaian extends MX_Controller {
 	public function getdata()
 	{
 		
-		$data = $this->Company_information_model->getdata();
+		$data = $this->Company_information_model->getdata_pencapaian();
             	echo json_encode($data);
 		
 	}

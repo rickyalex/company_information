@@ -10,25 +10,7 @@ class Company_information_model extends CI_Model{
 	
 	public function getdata()
 	{
-		$query = $this->DB->query("SELECT 
-                        CONCAT(                        
-                        IF (MONTH(a.tanggal)=1,'JANUARI',
-                        IF (MONTH(a.tanggal)=2,'FEBRUARI',
-                        IF (MONTH(a.tanggal)=3,'MARET',
-                        IF (MONTH(a.tanggal)=4,'APRIL',
-                        IF (MONTH(a.tanggal)=5,'MEI',
-                        IF (MONTH(a.tanggal)=6,'JUNI',
-                        IF (MONTH(a.tanggal)=7,'JULI',
-                        IF (MONTH(a.tanggal)=8,'AGUSTUS',
-                        IF (MONTH(a.tanggal)=9,'SEPTEMBER',
-                        IF (MONTH(a.tanggal)=10,'OKTOBER',
-                        IF (MONTH(a.tanggal)=11,'NOVEMBER',
-                        IF (MONTH(a.tanggal)=12,'JANUARI',0)))))))))))),' ',YEAR(a.tanggal))AS bln,
-                        YEAR(a.tanggal) AS thn,
-                      IF(((MONTH(`a`.`tanggal`) = MONTH(NOW())) AND (YEAR(`a`.`tanggal`) = YEAR(NOW()))),((`a`.`revenue` / `a`.`target`) * 100),0) AS `pencapaian1`,
-                      IF(((MONTH(`a`.`tanggal`) = MONTH(NOW())) AND (YEAR(`a`.`tanggal`) = YEAR(NOW()))),((`a`.`cost` / `a`.`revenue`) * 100),0) AS `pencapaian2`,
-                      IF(((MONTH(`a`.`tanggal`) = MONTH(NOW())) AND (YEAR(`a`.`tanggal`) = YEAR(NOW()))),((`a`.`margin` / `a`.`revenue`) * 100),0) AS `pencapaian3`
-                    FROM company_information.`upload_resume_revenue` `a`");
+		$query = $this->DB->query("SELECT * from absen");
 		$result = $query->result_array();
 		return $result;
 	}
@@ -146,49 +128,99 @@ class Company_information_model extends CI_Model{
 		}
 	}
 //====================================================================================================================================================================================================================================================================	
-	/* public function getdata_peminjaman_aset()
+	 public function getdata_info_text()
 	{
-		$query = $this->DB->query("SELECT id, no_unit, status, dipakai_oleh, jam_booking, dengan_tujuan, akan_tersedia_pada_pukul FROM peminjaman_aset ORDER BY akan_tersedia_pada_pukul ASC");
+		$query = $this->DB->query("SELECT * from info_text");
 		$result = $query->result_array();
 		return $result;
 	}
 	
-	public function adddataproses_peminjaman_aset($no_unit, $status, $dipakai_oleh, $jam_booking, $dengan_tujuan, $akan_tersedia_pada_pukul)
-    {
-         
+	 public function adddataproses_info($info)
+        {
+             
+        $tgl = date('y-m-d');
         $query = $this->DB->query("INSERT INTO
-										peminjaman_aset(no_unit, status, dipakai_oleh, jam_booking, dengan_tujuan, akan_tersedia_pada_pukul)
-									VALUES
-										('".$no_unit."', '".$status."', '".$dipakai_oleh."', '".$jam_booking."', '".$dengan_tujuan."', '".$akan_tersedia_pada_pukul."')");  
-	  	if($query){
-	 		return true;
+                info_text(tanggal, info, status)
+                VALUES
+                ('".$tgl."','".$info."','1')");  
+        if($query){
+            return true;
     	}else{
-	 		return false;
+            return false;
 	 	} 
 	}
-	
-	public function editdata_peminjaman_aset($id="")
-    {         
-  		$query = $this->DB->query_peminjaman_aset("SELECT id, no_unit, status, dipakai_oleh, jam_booking, dengan_tujuan, akan_tersedia_pada_pukul FROM peminjaman_aset WHERE id = '".$id."'"); 
-        return $query->result();  
-    }
-	
-	public function editdataproses_peminjaman_aset($id, $no_unit, $status, $dipakai_oleh, $jam_booking, $dengan_tujuan, $akan_tersedia_pada_pukul)
-    {
+        	
+	public function editdata_info($id="")
+            {         
+  		$query = $this->DB->query("SELECT id, tanggal, info, status FROM info_text WHERE id = '".$id."'"); 
+                return $query->result();  
+            }	
+    
+	public function editdataproses_info_model($id, $tanggal, $info, $status)
+            {
          
-        $query = $this->DB->query("UPDATE
-										peminjaman_aset
-									SET
-										id ='".$id."',no_unit='".$no_unit."', status='".$status."', dipakai_oleh='".$dipakai_oleh."', jam_booking = '".$jam_booking."', dengan_tujuan = '".$dengan_tujuan."', akan_tersedia_pada_pukul = '".$akan_tersedia_pada_pukul."'
-									WHERE
-										id = '".$id."'");  
+                $query = $this->DB->query("UPDATE info_text set 
+                                                info='".$info."', status='".$status."'
+                                                WHERE id = '".$id."'");  
 	  	if($query){
 	 		return true;
     	}else{
 	 		return false;
 	 	} 
 	}
+	/*
+	public function removedata_peminjaman_aset($id)
+	{
+		$query = $this->DB->query("DELETE FROM peminjaman_aset WHERE id = '".$id."'"); 
+		if ($query){
+			return true;
+		}else{
+			return false;
+		}
+	} */
+        
+//====================================================================================================================================================================================================================================================================	
+	 public function getdata_pencapaian()
+	{
+		$query = $this->DB->query("select * from upload_resume_revenue");
+		$result = $query->result_array();
+		return $result;
+	}
 	
+	 public function adddataproses_pencapaian($info)
+        {
+             
+        $tgl = date('y-m-d');
+        $query = $this->DB->query("INSERT INTO
+                info_text(tanggal, info, status)
+                VALUES
+                ('".$tgl."','".$info."','1')");  
+        if($query){
+            return true;
+    	}else{
+            return false;
+	 	} 
+	}
+        	
+	public function editdata_pencapaian($id="")
+            {         
+  		$query = $this->DB->query("SELECT id, tanggal, target, revenue, cost, margin, cost_margin from upload_resume_revenue WHERE id = '".$id."'"); 
+                return $query->result();  
+            }	
+    
+	public function editdataproses_pencapaian($id, $tanggal, $target, $revenue, $cost, $margin, $cost_margin)
+            {
+         
+                $query = $this->DB->query("UPDATE upload_resume_revenue set 
+                                                target='".$target."',revenue='".$revenue."', cost='".$cost."',margin='".$margin."',cost_margin='".$cost_margin."'
+                                                WHERE id = '".$id."'");  
+	  	if($query){
+	 		return true;
+    	}else{
+	 		return false;
+	 	} 
+	}
+	/*
 	public function removedata_peminjaman_aset($id)
 	{
 		$query = $this->DB->query("DELETE FROM peminjaman_aset WHERE id = '".$id."'"); 

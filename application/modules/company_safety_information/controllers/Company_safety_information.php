@@ -63,24 +63,29 @@ class Company_safety_information extends MX_Controller {
 	public function adddataproses()
     {  
 		//$id = $_POST['id'];
-		$payroll_id = $_POST['payroll_id'];
-		$nama_karyawan = $_POST['nama_karyawan'];
-		$jabatan = $_POST['jabatan']; 
-		$jam_masuk = date('Y-m-d H:i:s',strtotime($_POST['jam_masuk']));//date('d-m-Y HH:mm:ss',strtotime($jam_masuk))
+		//$payroll_id = $_POST['payroll_id'];
+		//$nama_karyawan = $_POST['nama_karyawan'];
+		//$jabatan = $_POST['jabatan']; 
+		//$jam_masuk = date('Y-m-d H:i:s',strtotime($_POST['jam_masuk']));//date('d-m-Y HH:mm:ss',strtotime($jam_masuk))
 		
-	    $data = $this->Company_information_model->adddataproses($payroll_id, $nama_karyawan, $jabatan, $jam_masuk);
-		echo json_encode($data);
+                
+                $info = $_POST['info'];
+	    $data = $this->Company_information_model->adddataproses_info($info);
+            echo json_encode($data);
     }
 	
-	public function editdataproses()
+	public function editdataproses_info()
     {  
-		$id = $_POST['id'];
-		$payroll_id = $_POST['payroll_id'];
-		$nama_karyawan = $_POST['nama_karyawan'];
-		$jabatan = $_POST['jabatan']; 
-		$jam_masuk = date('Y-m-d H:i:s',strtotime($_POST['jam_masuk']));//date('d-m-Y HH:mm:ss',strtotime($jam_masuk))
+//		$payroll_id = $_POST['payroll_id'];
+//		$nama_karyawan = $_POST['nama_karyawan'];
+//		$jabatan = $_POST['jabatan']; 
+//		$jam_masuk = date('Y-m-d H:i:s',strtotime($_POST['jam_masuk']));//date('d-m-Y HH:mm:ss',strtotime($jam_masuk))
 		
-	    $data = $this->Company_information_model->editdataproses($id, $payroll_id, $nama_karyawan, $jabatan, $jabatan, $jam_masuk);
+                $id = $_POST['id'];
+                $tanggal = $_POST['tanggal'];
+                $info = $_POST['info'];
+                $status = $_POST['status'];
+	    $data = $this->Company_information_model->editdataproses_info_model($id, $tanggal, $info, $status);
 		echo json_encode($data);
     }
 	
@@ -95,7 +100,7 @@ class Company_safety_information extends MX_Controller {
 	public function getdata()
 	{
 		
-		$data = $this->Company_information_model->getdata();
+		$data = $this->Company_information_model->getdata_info_text();
 		echo json_encode($data);
 		
 	}
