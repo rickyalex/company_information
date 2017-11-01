@@ -1,3 +1,5 @@
+<?php date_default_timezone_set('Asia/Jakarta'); ?>
+
 <!DOCTYPE html>
 <html >
     <head>
@@ -259,7 +261,7 @@
             
         </div>
         <div id="textlayer">
-            <a href="<?php echo base_url(); ?>welcome" id="text2" class="btn btn-small btn-info">Admin</a>
+            <a href="<?php echo base_url(); ?>auth/login" id="text2" class="btn btn-small btn-info">Admin</a>
             <marquee id="text1" behavior="scroll" loop="infinite" starttime="0" displaytime="20">     
             </marquee>
 

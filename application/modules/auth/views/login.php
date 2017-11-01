@@ -12,16 +12,16 @@
 	<!-- Favico -->
 	<link rel="shortcut icon" href="<?php echo base_url(); ?>assets/assets_from_gentelella/information-icon.png" type="image/png">
     <!-- Bootstrap -->
-    <link href="<?php echo base_url(); ?>assets/assets_from_gentelella/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/assets_from_gentelella_ocs/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
-    <link href="<?php echo base_url(); ?>assets/assets_from_gentelella/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/assets_from_gentelella_ocs/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- NProgress -->
-    <link href="<?php echo base_url(); ?>assets/assets_from_gentelella/vendors/nprogress/nprogress.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/assets_from_gentelella_ocs/vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- Animate.css -->
-    <link href="<?php echo base_url(); ?>assets/assets_from_gentelella/vendors/animate.css/animate.min.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/assets_from_gentelella_ocs/vendors/animate.css/animate.min.css" rel="stylesheet">
 
     <!-- Custom Theme Style -->
-    <link href="<?php echo base_url(); ?>assets/assets_from_gentelella/build/css/custom.min.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/assets_from_gentelella_ocs/build/css/custom.min.css" rel="stylesheet">
   </head>
 										
 											
@@ -45,18 +45,21 @@
 												<?php echo form_input($password, '', 'class="form-control" placeholder="Password"');//placeholder="'.$this->lang->line("pw").'"?>
 											  </div>
 											  <div>
-												<?php echo form_submit('submit', lang('login_submit_btn'), 'class="btn btn-default submit"');?>
-												<a class="reset_pass" href="#">Lost your password?</a>
-											  </div>
-
+                                                                                              <?php echo form_submit('submit', lang('login_submit_btn'), 'class="btn btn-default submit"');?>                                                                                                                                                                                           	
+                                                                                              <a class="reset_pass" href="#">Lost your password?</a>
+                                                                                          </div>
+                                                                                                                                                                                    
 											  <div class="clearfix"></div>
-
+                                                                                          
 											  <div class="separator">
 												<p class="change_link">New to site?
 												  <a href="#signup" class="to_register"> Create Account </a>
 												</p>
 
 												<div class="clearfix"></div>
+                                                                                          <div>
+                                                                                              <a class="btn btn-default submit" href="<?php echo base_url(); ?>" >Dashboard</a>                                                                                              
+                                                                                          </div>
 												  <h1><i class="fa fa-info-circle"></i></h1>
 												  <p>Company Information © 2017</p>
 												

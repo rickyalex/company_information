@@ -15,49 +15,46 @@ class Company_information_model extends CI_Model{
 		return $result;
 	}
 	
-	public function adddataproses($payroll_id, $nama_karyawan, $jabatan, $jam_masuk)
-    {
-         
-        $query = $this->DB->query("INSERT INTO
-										absen(payroll_id, nama_karyawan, jabatan, jam_masuk)
-									VALUES
-										('".$payroll_id."', '".$nama_karyawan."', '".$jabatan."', '".$jam_masuk."')");  
-	  	if($query){
-	 		return true;
-    	}else{
-	 		return false;
-	 	} 
-	}
-	
-	public function editdata($id="")
-    {         
-  		$query = $this->DB->query("SELECT id, payroll_id, nama_karyawan, jabatan, jam_masuk FROM  absen WHERE id = '".$id."'"); 
-        return $query->result();  
-    }
-	
-	public function editdataproses($id, $payroll_id, $nama_karyawan, $jabatan, $jabatan, $jam_masuk)
-        {
-         
-        $query = $this->DB->query("UPDATE absen SET
-		id ='".$id."',payroll_id='".$payroll_id."', nama_karyawan='".$nama_karyawan."', jabatan='".$jabatan."', jam_masuk = '".$jam_masuk."'
-		WHERE
-                id = '".$id."'");  
-	  	if($query){
-	 		return true;
-    	}else{
-	 		return false;
-	 	} 
-	}
-	
-	public function removedata($id)
-	{
-		$query = $this->DB->query("DELETE FROM absen WHERE id = '".$id."'"); 
-		if ($query){
-			return true;
-		}else{
-			return false;
-		}
-	}
+//	public function adddataproses($payroll_id, $nama_karyawan, $jabatan, $jam_masuk)
+//        {
+//        $query = $this->DB->query("INSERT INTO absen(payroll_id, nama_karyawan, jabatan, jam_masuk)
+//				VALUES ('".$payroll_id."', '".$nama_karyawan."', '".$jabatan."', '".$jam_masuk."')");  
+//	if($query){
+//            return true;
+//    	}else{
+//            return false;
+//             } 
+//	}
+//	
+//	public function editdata($id="")
+//    {         
+//  		$query = $this->DB->query("SELECT id, payroll_id, nama_karyawan, jabatan, jam_masuk FROM  absen WHERE id = '".$id."'"); 
+//        return $query->result();  
+//    }
+//	
+//	public function editdataproses($id, $payroll_id, $nama_karyawan, $jabatan, $jabatan, $jam_masuk)
+//        {
+//         
+//        $query = $this->DB->query("UPDATE absen SET
+//		id ='".$id."',payroll_id='".$payroll_id."', nama_karyawan='".$nama_karyawan."', jabatan='".$jabatan."', jam_masuk = '".$jam_masuk."'
+//		WHERE
+//                id = '".$id."'");  
+//	  	if($query){
+//	 		return true;
+//    	}else{
+//	 		return false;
+//	 	} 
+//	}
+//	
+//	public function removedata($id)
+//	{
+//		$query = $this->DB->query("DELETE FROM absen WHERE id = '".$id."'"); 
+//		if ($query){
+//			return true;
+//		}else{
+//			return false;
+//		}
+//	}
 //====================================================================================================================================================================================================================================================================	
 	public function getdata_peminjaman_aset()
 	{
@@ -77,56 +74,56 @@ class Company_information_model extends CI_Model{
                              LEFT JOIN `portal`.`carpool`
                                ON ((`portal`.`car`.`car_id` = `portal`.`carpool`.`carpool_car_id`)))
                           LEFT JOIN  hris.m_dept  ON ( hris.m_dept.`dept_code`  =  portal.carpool.`carpool_costcenter`)
-                          GROUP BY `portal`.`car`.`car_user`");
+                          ");
 		$result = $query->result_array();
 		return $result;
 	}
-	
-	public function adddataproses_peminjaman_aset($no_unit, $status, $dipakai_oleh, $jam_booking, $dengan_tujuan, $akan_tersedia_pada_pukul)
-    {
-         
-        $query = $this->DB->query("INSERT INTO
-										peminjaman_aset(no_unit, status, dipakai_oleh, jam_booking, dengan_tujuan, akan_tersedia_pada_pukul)
-									VALUES
-										('".$no_unit."', '".$status."', '".$dipakai_oleh."', '".$jam_booking."', '".$dengan_tujuan."', '".$akan_tersedia_pada_pukul."')");  
-	  	if($query){
-	 		return true;
-    	}else{
-	 		return false;
-	 	} 
-	}
-	
-	public function editdata_peminjaman_aset($id="")
-    {         
-  		$query = $this->DB->query_peminjaman_aset("SELECT id, no_unit, status, dipakai_oleh, jam_booking, dengan_tujuan, akan_tersedia_pada_pukul FROM peminjaman_aset WHERE id = '".$id."'"); 
-        return $query->result();  
-    }
-	
-	public function editdataproses_peminjaman_aset($id, $no_unit, $status, $dipakai_oleh, $jam_booking, $dengan_tujuan, $akan_tersedia_pada_pukul)
-    {
-         
-        $query = $this->DB->query("UPDATE
-										peminjaman_aset
-									SET
-										id ='".$id."',no_unit='".$no_unit."', status='".$status."', dipakai_oleh='".$dipakai_oleh."', jam_booking = '".$jam_booking."', dengan_tujuan = '".$dengan_tujuan."', akan_tersedia_pada_pukul = '".$akan_tersedia_pada_pukul."'
-									WHERE
-										id = '".$id."'");  
-	  	if($query){
-	 		return true;
-    	}else{
-	 		return false;
-	 	} 
-	}
-	
-	public function removedata_peminjaman_aset($id)
-	{
-		$query = $this->DB->query("DELETE FROM peminjaman_aset WHERE id = '".$id."'"); 
-		if ($query){
-			return true;
-		}else{
-			return false;
-		}
-	}
+//	
+//	public function adddataproses_peminjaman_aset($no_unit, $status, $dipakai_oleh, $jam_booking, $dengan_tujuan, $akan_tersedia_pada_pukul)
+//    {
+//         
+//        $query = $this->DB->query("INSERT INTO
+//										peminjaman_aset(no_unit, status, dipakai_oleh, jam_booking, dengan_tujuan, akan_tersedia_pada_pukul)
+//									VALUES
+//										('".$no_unit."', '".$status."', '".$dipakai_oleh."', '".$jam_booking."', '".$dengan_tujuan."', '".$akan_tersedia_pada_pukul."')");  
+//	  	if($query){
+//	 		return true;
+//    	}else{
+//	 		return false;
+//	 	} 
+//	}
+//	
+//	public function editdata_peminjaman_aset($id="")
+//    {         
+//  		$query = $this->DB->query_peminjaman_aset("SELECT id, no_unit, status, dipakai_oleh, jam_booking, dengan_tujuan, akan_tersedia_pada_pukul FROM peminjaman_aset WHERE id = '".$id."'"); 
+//        return $query->result();  
+//    }
+//	
+//	public function editdataproses_peminjaman_aset($id, $no_unit, $status, $dipakai_oleh, $jam_booking, $dengan_tujuan, $akan_tersedia_pada_pukul)
+//    {
+//         
+//        $query = $this->DB->query("UPDATE
+//										peminjaman_aset
+//									SET
+//										id ='".$id."',no_unit='".$no_unit."', status='".$status."', dipakai_oleh='".$dipakai_oleh."', jam_booking = '".$jam_booking."', dengan_tujuan = '".$dengan_tujuan."', akan_tersedia_pada_pukul = '".$akan_tersedia_pada_pukul."'
+//									WHERE
+//										id = '".$id."'");  
+//	  	if($query){
+//	 		return true;
+//    	}else{
+//	 		return false;
+//	 	} 
+//	}
+//	
+//	public function removedata_peminjaman_aset($id)
+//	{
+//		$query = $this->DB->query("DELETE FROM peminjaman_aset WHERE id = '".$id."'"); 
+//		if ($query){
+//			return true;
+//		}else{
+//			return false;
+//		}
+//	}
 //====================================================================================================================================================================================================================================================================	
 	 public function getdata_info_text()
 	{
@@ -168,16 +165,16 @@ class Company_information_model extends CI_Model{
 	 		return false;
 	 	} 
 	}
-	/*
-	public function removedata_peminjaman_aset($id)
+	
+	public function removedata_info($id)
 	{
-		$query = $this->DB->query("DELETE FROM peminjaman_aset WHERE id = '".$id."'"); 
+		$query = $this->DB->query("DELETE FROM info_text WHERE id = '".$id."'"); 
 		if ($query){
 			return true;
 		}else{
 			return false;
 		}
-	} */
+	} 
         
 //====================================================================================================================================================================================================================================================================	
 	 public function getdata_pencapaian()
@@ -220,15 +217,15 @@ class Company_information_model extends CI_Model{
 	 		return false;
 	 	} 
 	}
-	/*
-	public function removedata_peminjaman_aset($id)
+	
+	public function removedata_pencapaian($id)
 	{
-		$query = $this->DB->query("DELETE FROM peminjaman_aset WHERE id = '".$id."'"); 
+		$query = $this->DB->query("DELETE upload_resume_revenue WHERE id = '".$id."'"); 
 		if ($query){
 			return true;
 		}else{
 			return false;
 		}
-	} */
+	}
  
 }

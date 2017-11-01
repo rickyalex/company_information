@@ -1,5 +1,6 @@
 <?php 
- 
+date_default_timezone_set('Asia/Jakarta');
+
 class M_data extends CI_Model{
 	
 	function __construct()
@@ -35,7 +36,7 @@ class M_data extends CI_Model{
 		return $this->DB->get('q_resume_revenue');
 	}
 	function portal_ga(){
-		
+		date_default_timezone_set('Asia/Jakara');
 		$sql = $this->DB->query("SELECT * FROM get_portal ");
 		return $sql;
 		

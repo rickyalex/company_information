@@ -82,7 +82,7 @@
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Target<span class="required">*</span>
                         </label>
                         <div class="col-md-6 col-sm-6 col-xs-12">
-                          <input type="text" id="target" name="target" required="required" class="form-control col-md-7 col-xs-12" readonly="readonly" value="<?php echo $target; ?>">
+                          <input type="text" id="target" name="target" required="required" class="form-control col-md-7 col-xs-12" value="<?php echo $target; ?>">
                         </div>
                       </div>
                       <div class="form-group">

@@ -151,7 +151,7 @@
 	function actionFormatter(value, row, index) {
 		var myObj  = JSON.stringify(row);
 		var objek = JSON.parse(myObj);
-    	var id = objek.id;
+                var id = objek.id;
 				return [
     				'<center><a class="remove btn btn-danger btn-xs" href="javascript:void(0)" title="Hapus">',
     				'<i class="fa fa-trash-o"></i>',
@@ -171,8 +171,7 @@
     		var myObj  = JSON.stringify(row);
     		var objek = JSON.parse(myObj);
     		var id = objek.id;
-    		var cari = objek.cari;
-			//alert(id);
+			//alert(cari);
      	    $.ajax({
     			  url: '<?php echo base_url();?>company_safety_information/removedata/',
     			  dataType: 'json',

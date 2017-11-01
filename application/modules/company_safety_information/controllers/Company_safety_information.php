@@ -92,7 +92,7 @@ class Company_safety_information extends MX_Controller {
 	public function removedata()
     { 
 		$id = $_POST['id']; 
-		$data = $this->Company_information_model->removedata($id); 
+		$data = $this->Company_information_model->removedata_info($id); 
         
         echo json_encode($data); 
     }

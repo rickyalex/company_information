@@ -89,7 +89,7 @@ class Company_pencapaian extends MX_Controller {
 	public function removedata()
     { 
 		$id = $_POST['id']; 
-		$data = $this->Company_information_model->removedata($id); 
+		$data = $this->Company_information_model->removedata_pencapaian($id); 
         
         echo json_encode($data); 
     }

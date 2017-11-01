@@ -68,28 +68,28 @@
           <!-- /top tiles -->
 		  <div class="row">
             <div class="col-md-12 col-sm-12 col-xs-12">
-			  <div class="x_panel tile fixed_height_400">
-				
+			  <div class="x_panel tile fixed_height_400">				
 					
-							<?php
-							$attributes = array('id' => 'welcome');
-							echo form_open_multipart('Company_absen/unggahexcel', $attributes);
-							?>
-							<div class="form-group">
-								<input type="file" id="company_absen_id" name="company_absen_name" />
-							</div>
-							<div>
-									<button id="buttonSubmit" type="submit" class="btn btn-default btn-customize" title="Upload Excel">Upload File Excel</button>
-								
-							</div>
-							</form>
-							<div>
-									<a href="<?php echo base_url();?>company_absen/adddata/">
-										<button id="buttonAdd" type="submit" class="btn btn-default btn-customize-tambah" title="Upload Excel">Tambah Data</button>
-									</a>
-							</div>
-							<table id="table"></table>
-							
+                                <?php
+                                $attributes = array('id' => 'welcome');
+                                echo form_open_multipart('Company_absen/unggahexcel', $attributes);
+                                ?>
+                                <div class="form-group">
+                                        <input type="file" id="company_absen_id" name="company_absen_name" />
+                                </div>
+                                <div>
+                                                <button id="buttonSubmit" type="submit" class="btn btn-default btn-customize" title="Upload Excel">Upload File Excel</button>
+
+                                </div>
+                                </form>
+
+<!--				Karena data hanya di upload via excel dari data finger
+                                <div>
+                                    <a href="<?php echo base_url();?>company_absen/adddata/">
+                                        <button id="buttonAdd" type="submit" class="btn btn-default btn-customize-tambah" title="Upload Excel">Tambah Data</button>
+                                    </a>
+                                </div>
+                                <table id="table"></table>-->							
 		
 			  </div>
               <div class="x_panel tile fixed_height_400">
@@ -112,16 +112,15 @@
 							data-export-types="['excel','csv']"
 							data-height="100%"
                             sortable="true"
-							data-url="<?php echo base_url();?>welcome/getdata">
+							data-url="<?php echo base_url();?>company_absen/getdata">
 							<thead>
 								<tr> 
 									<th data-field="payroll_id" width="auto" data-sortable="true"><center>Payroll Id</center></th> 
 									<th data-field="nama_karyawan" width="auto" data-sortable="true"><center>Nama karyawan</center></th>
 									<th data-field="jabatan" width="auto" data-sortable="true"><center>Jabatan</center></th> 
-									<!--<th data-formatter="formattanggal" data-field="jam_masuk" width="auto" data-sortable="true"><center>Jam Masuk</center></th>--> 
 									<th data-field="jam_masuk" width="auto" data-sortable="true"><center>Jam Masuk</center></th> 
-									
-									<th data-field="action" style="" data-formatter="actionFormatter" data-events="actionEvents"><center>Action</center></th>
+									<!--<th data-formatter="formattanggal" data-field="jam_masuk" width="auto" data-sortable="true"><center>Jam Masuk</center></th>
+									<th data-field="action" style="" data-formatter="actionFormatter" data-events="actionEvents"><center>Action</center></th>--> 
 								</tr>    
 							</thead>
 						</table>
@@ -147,47 +146,49 @@
 		return moment(value).format('DD/MM/YYYY');
 	}//lagi coba buat 31 Agustus 2017, 08:09:00
 	
-	function actionFormatter(value, row, index) {
-		var myObj  = JSON.stringify(row);
-		var objek = JSON.parse(myObj);
-    	var id = objek.id;
-				return [
-    				'<center><a class="remove btn btn-danger btn-xs" href="javascript:void(0)" title="Hapus">',
-    				'<i class="fa fa-trash-o"></i>',
-    				'</a>    ',
-    				'<a class="edit btn btn-info btn-xs" href="'+base_url+'company_absen/editdata/'+id+'" title="Ubah">',
-    				'<i class="fa fa-pencil"></i>',
-    				'</a></center>'
-    			].join(''); 
-    }
-	window.actionEvents = {
-        'click .edit': function (e, value, row, index) {
-                //alert('You click edit icon, row: ' + JSON.stringify(row));
-           console.log(value, row, index);
-        },
-        'click .remove': function (e, value, row, index) {
-          //  alert('delete: ' + JSON.stringify(row));
-    		var myObj  = JSON.stringify(row);
-    		var objek = JSON.parse(myObj);
-    		var id = objek.id;
-    		var cari = objek.cari;
-			//alert(id);
-     	    $.ajax({
-    			  url: '<?php echo base_url();?>company_absen/removedata/',
-    			  dataType: 'json',
-    			  type: 'POST',
-    			  data: {id: id}, // contains changed cells' data
-    			  success: function (data){
-    				  if(data == true){
-    					  alert("Data telah dihapus");
-                          location.reload();
-    					  $('#getdata').load('company_absen');
-    				  }
-    			  }
-    			}); 
-            console.log(value, row, index);
-        }
-    };
+//	function actionFormatter(value, row, index) {
+//		var myObj  = JSON.stringify(row);
+//		var objek = JSON.parse(myObj);
+//    	var id = objek.id;
+//				return [
+//    				'<center><a class="remove btn btn-danger btn-xs" href="javascript:void(0)" title="Hapus">',
+//    				'<i class="fa fa-trash-o"></i>',
+//    				'</a>    ',
+//    				'<a class="edit btn btn-info btn-xs" href="'+base_url+'company_absen/editdata/'+id+'" title="Ubah">',
+//    				'<i class="fa fa-pencil"></i>',
+//    				'</a></center>'
+//    			].join(''); 
+//    }
+//	window.actionEvents = {
+//        'click .edit': function (e, value, row, index) {
+//                //alert('You click edit icon, row: ' + JSON.stringify(row));
+//           console.log(value, row, index);
+//        },
+//        'click .remove': function (e, value, row, index) {
+//          //  alert('delete: ' + JSON.stringify(row));
+//    		var myObj  = JSON.stringify(row);
+//    		var objek = JSON.parse(myObj);
+//    		var id = objek.id;
+//    		var cari = objek.cari;
+//			//alert(id);
+//     	    $.ajax({
+//    			  url: '<?php echo base_url();?>company_absen/removedata/',
+//    			  dataType: 'json',
+//    			  type: 'POST',
+//    			  data: {id: id}, // contains changed cells' data
+//    			  success: function (data){
+//    				  if(data == true){
+//    					  alert("Data telah dihapus");
+//                          location.reload();
+//    					  $('#getdata').load('company_absen');
+//    				  }
+//    			  }
+//    			}); 
+//            console.log(value, row, index);
+//        }
+//    };
+    
+    
 	//form submit menggunakan FormData harus menggunakan browser versi IE 10+, Firefox 4.0+, Chrome 7+, Safari 5+, Opera 12+
 			jQuery("form#welcome").submit(function (event) {
 				event.preventDefault();

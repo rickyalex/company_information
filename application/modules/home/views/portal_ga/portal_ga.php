@@ -1,4 +1,6 @@
 <?php 
+date_default_timezone_set('Asia/Jakara');
+
 		$i=1;
 	  foreach ($get_portal->result() as $refresh_portal_ga ) {
 		  
