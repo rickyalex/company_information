@@ -12,7 +12,7 @@ class M_data extends CI_Model{
     }
 	
 	function running_text(){
-		$sql = $this->DB->query("SELECT * FROM info_text");
+		$sql = $this->DB->query("SELECT * FROM info_text where status='1'");
 		return $sql;
 	}
 	function tampil_data(){
