@@ -117,8 +117,10 @@
 								<tr> 
 									<th data-field="payroll_id" width="auto" data-sortable="true"><center>Payroll Id</center></th> 
 									<th data-field="nama_karyawan" width="auto" data-sortable="true"><center>Nama karyawan</center></th>
-									<th data-field="jabatan" width="auto" data-sortable="true"><center>Jabatan</center></th> 
-									<th data-field="jam_masuk" width="auto" data-sortable="true"><center>Jam Masuk</center></th> 
+									<th data-field="jabatan" width="auto" data-sortable="true"><center>Jabatan</center></th>
+                                                                        <th data-field="tgl" width="auto" data-sortable="true"><center>Tanggal</center></th>
+                                                                        <th data-field="jam_masuk" width="auto" data-sortable="true"><center>In</center></th>
+                                                                        <th data-field="jam_keluar" width="auto" data-sortable="true"><center>Out</center></th>
 									<!--<th data-formatter="formattanggal" data-field="jam_masuk" width="auto" data-sortable="true"><center>Jam Masuk</center></th>
 									<th data-field="action" style="" data-formatter="actionFormatter" data-events="actionEvents"><center>Action</center></th>--> 
 								</tr>    

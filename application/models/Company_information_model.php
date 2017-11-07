@@ -10,7 +10,7 @@ class Company_information_model extends CI_Model{
 	
 	public function getdata()
 	{
-		$query = $this->DB->query("SELECT * from absen");
+		$query = $this->DB->query("SELECT * from q_absen order by jam_masuk DESC");
 		$result = $query->result_array();
 		return $result;
 	}
