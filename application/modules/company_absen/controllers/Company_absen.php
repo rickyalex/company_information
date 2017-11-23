@@ -32,10 +32,10 @@ class Company_absen extends MX_Controller {
 		$this->load->library('session');
 		
 		$this->load->library('email');
-        $this->load->helper(array('form', 'url'));
+                $this->load->helper(array('form', 'url'));
 		$this->load->library('form_validation');
-        $this->load->library('PHPExcel/IOFactory');
-        $this->load->library('upload');
+                $this->load->library('PHPExcel/IOFactory');
+                $this->load->library('upload');
 		$this->load->model('Company_information_model');		
 		$this->DB = $this->load->database('company_information', TRUE);
     } 
@@ -137,7 +137,7 @@ class Company_absen extends MX_Controller {
         
          for ($row = 2; $row <= 1515; $row++) {//dimulai dari baris kedua setelah column name
 			$val = array();
-            for ($col = 0; $col < 4; $col++) {//
+            for ($col = 0; $col < 2; $col++) {//
                 if ($worksheet->getCellByColumnAndRow(1, $row)->getValue() == '') $end = true;
                 else {
 					$val = $worksheet->getCellByColumnAndRow($col, $row)->getCalculatedValue();
@@ -164,20 +164,16 @@ class Company_absen extends MX_Controller {
         foreach ($arr as $value) {
             $y = 1;
             foreach ($value as $item) {
-				switch($y){
-					case 1:
-						$field = "payroll_id";
-						break;
-					case 2:
-						$field = "nama_karyawan";
-						break;
-					case 3:
-						$field = "jabatan";
-						break;
-					case 4:
-						$field = "jam_masuk";
-						break;
-					
+                switch($y){
+                    case 1:
+                            $field = "finger_no";
+                            break;
+                    case 2:
+                            //$tgl = "jam_masuk";
+                            $field = "jam_masuk";
+                                    //date('yyyy-mm-dd hh:mm:ss', strtotime($tgl)); 
+                            break;
+									
 				}
                 $emp[$x][$field] = $item;
                 $y++;
@@ -187,8 +183,9 @@ class Company_absen extends MX_Controller {
 
         foreach ($emp as $value) {
 			$query = $this->DB->insert('absen', $value);
+                        
         }
-
+        
         echo "Upload Excel Berhasil";
         die();
             

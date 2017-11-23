@@ -71,7 +71,7 @@
 			  <div class="x_panel tile fixed_height_400">				
 					
                                 <?php
-                                $attributes = array('id' => 'welcome');
+                                $attributes = array('id' => 'company_absen');
                                 echo form_open_multipart('Company_absen/unggahexcel', $attributes);
                                 ?>
                                 <div class="form-group">
@@ -192,7 +192,7 @@
     
     
 	//form submit menggunakan FormData harus menggunakan browser versi IE 10+, Firefox 4.0+, Chrome 7+, Safari 5+, Opera 12+
-			jQuery("form#welcome").submit(function (event) {
+			jQuery("form#company_absen").submit(function (event) {
 				event.preventDefault();
 				//var e = $('#input_upload').val();
 				var form = jQuery(this)[0];

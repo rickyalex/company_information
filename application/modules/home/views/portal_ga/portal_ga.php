@@ -19,7 +19,7 @@ date_default_timezone_set('Asia/Jakara');
 		 echo '
 		 <tr>
 			 <td>'.$i.'</td>
-			 <td> Avansa</td>
+			 <td> Avanza</td>
 			<td>'.$refresh_portal_ga->car_nopol.'</td>
 			 <td>'.$refresh_portal_ga->dept_name.'</td>
 			 <td>'.$refresh_portal_ga->carpool_tujuan.'</td>
@@ -35,7 +35,7 @@ date_default_timezone_set('Asia/Jakara');
 			  echo '
 		<tr>
 			<td>'.$i.'</td>
-			<td> Avansa</td>
+			<td> Avanza</td>
 			<td>'.$refresh_portal_ga->car_nopol.'</td>
 			<td>'.$refresh_portal_ga->dept_name.'</td>
 			<td>'.$refresh_portal_ga->carpool_tujuan.'</td>

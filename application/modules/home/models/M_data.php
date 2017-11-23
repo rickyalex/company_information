@@ -37,7 +37,17 @@ class M_data extends CI_Model{
 	}
 	function portal_ga(){
 		date_default_timezone_set('Asia/Jakara');
-		$sql = $this->DB->query("SELECT * FROM get_portal ");
+		$sql = $this->DB->query("SELECT
+	portal.car.`car_user`,
+	a.carpool_date,
+	a.carpool_tujuan,
+	a.carpool_jamawal,
+	a.carpool_jamakhir,
+	(a.carpool_jamakhir-a.carpool_jamawal) / 1000 AS progress,
+	TIMEDIFF(a.`carpool_jamawal`,'08:00:00') / 1000 AS mulai
+FROM `portal`.`car`
+    LEFT JOIN (SELECT * FROM `portal`.`carpool` WHERE carpool_date = DATE(NOW())) a
+      ON `portal`.`car`.`car_id` = a.`carpool_car_id`");
 		return $sql;
 		
 		//$query = $this->DB_GA->query("SELECT a.`car_user`,a.car_nopol, b.carpool_costcenter,b.carpool_tujuan, d.dept_name AS dept_name,

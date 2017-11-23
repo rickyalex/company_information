@@ -296,7 +296,7 @@
                 $("#content").load('<?php echo base_url(); ?>home/view_bar_portal');
 
                 //runing text
-                $("#text1").load('<?php echo base_url(); ?>home/view_info_text');
+                //$("#text1").load('<?php echo base_url(); ?>home/view_info_text');
                 
             }, 5000);
         </script>

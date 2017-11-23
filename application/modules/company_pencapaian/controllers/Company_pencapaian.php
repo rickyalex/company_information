@@ -139,7 +139,7 @@ class Company_pencapaian extends MX_Controller {
         
          for ($row = 2; $row <= 1515; $row++) {//dimulai dari baris kedua setelah column name
 			$val = array();
-            for ($col = 0; $col < 4; $col++) {//
+            for ($col = 0; $col < 6; $col++) {//dimulai dari colom 0
                 if ($worksheet->getCellByColumnAndRow(1, $row)->getValue() == '') $end = true;
                 else {
 					$val = $worksheet->getCellByColumnAndRow($col, $row)->getCalculatedValue();
@@ -168,16 +168,22 @@ class Company_pencapaian extends MX_Controller {
             foreach ($value as $item) {
 				switch($y){
 					case 1:
-						$field = "payroll_id";
+						$field = "tanggal";                                                
 						break;
 					case 2:
-						$field = "nama_karyawan";
+						$field = "target";
 						break;
 					case 3:
-						$field = "jabatan";
+						$field = "revenue";
 						break;
 					case 4:
-						$field = "jam_masuk";
+						$field = "cost";
+						break;
+                                        case 5:
+						$field = "margin";
+						break;
+                                        case 6:
+						$field = "cost_margin";
 						break;
 					
 				}
@@ -188,7 +194,7 @@ class Company_pencapaian extends MX_Controller {
         }
 
         foreach ($emp as $value) {
-			$query = $this->DB->insert('absen', $value);
+			$query = $this->DB->insert('upload_resume_revenue', $value);
         }
 
         echo "Upload Excel Berhasil";
